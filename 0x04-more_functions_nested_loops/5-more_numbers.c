@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio>
 
 /**
  * more_numbers - displays 0 to 14 x10
