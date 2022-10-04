@@ -2,12 +2,10 @@
 #include <stdlib.h>
 
 /*
- * str_concat - A function that concentrates two strings
- * @s1: The first string to be concentrated
- * @s2: The second string to be concentrated
- * Return: NULL, if concentration fails
- * Else, a pointer to the newly-allocated space in memory
- * containing the concentrated strings
+ * str_concat - A function that concatenates two strings
+ * @s1: An input pointer of the first string
+ * @s2: An input pointer of the second string
+ * Return: A pointer to concatened strings or NULL if it str is NULL
  */
 
 char *str_concat(char *s1, char *s2)
