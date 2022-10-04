@@ -2,38 +2,54 @@
 #include <stdlib.h>
 
 /*
- * str_concat - Concatenates two strings
- * @s1: The string to be concatenated upon
- * @s2: The string to be concatenated to s1
- * Return: NULL, if concatenation fails
+ * str_concat - A function that concentrates two strings
+ * @s1: The first string to be concentrated
+ * @s2: The second string to be concentrated
+ * Return: NULL, if concentration fails
  * Else, a pointer to the newly-allocated space in memory
- * containing the concatenated strings
+ * containing the concentrated strings
  */
 
 char *str_concat(char *s1, char *s2)
 {
-	char *concat_str;
-	int x, concat_x = 0, length = 0;
+	char *new_str, *starts1, *starts2;
+	int i = 0, lens1 = 0, lens2 = 0;
 
+	starts1 = s1;
+	starts2 = s2;
 	if (s1 == NULL)
 		s1 = "";
-
+	while (*s1)
+	{
+		lens1++;
+		s1++;
+	}
+	s1 = starts1;
 	if (s2 == NULL)
 		s2 = "";
-
-	for (x = 0; s1[x] || s2[x]; x++)
-		length++;
-
-	concat_str = malloc(sizeof(char) * length);
-
-	if (concat_str == NULL)
+	while (*s2)
+	{
+		lens2++;
+		s2++;
+	}
+	s2 = starts2;
+	new_str = malloc(sizeof(char) * (lens1 + lens2 + 1));
+	starts1 = new_str;
+	if (new_str == NULL)
 		return (NULL);
-
-	for (x = 0; s1[x]; x++)
-		concat_str[concat_x++] = s1[x];
-
-	for (x = 0; s2[x]; x++)
-		concat_str[concat_x++] = s2[x];
-
-	return (concat_str);
+	for (; i < (lens1 + lens2); i++)
+	{
+		if (i < lens1)
+		{
+			new_str[i] = *s1;
+			s1++;
+		}
+		else
+		{
+			new_str[i] = *s2;
+			s2++;
+		}
+	}
+	new_str[i] = '\0';
+	return (starts1);
 }
